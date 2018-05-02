@@ -18,20 +18,22 @@ class NeuralNet:
 		np.random.ranf((10,1)) * np.random.ranf((1,10)),
 		np.random.ranf((10,1)) * np.random.ranf((1,10))]	
 
-	def trainThis(self,image,cnumber):
+	def trainThis(self,image,c):
 		out1 = np.matmul(self.layer[0] , image)
 
 		out1 = [x/10000 for x in out1]
 		out2 = np.matmul(self.layer[1] , out1)
 		out3 = np.matmul(self.layer[2] , out2)
 		out4 = np.matmul(self.layer[3] , out3)
-
+		out4 = [x/100 for x in out4]
+		
 		# print(out1)
 		# print(out2)
 		# print(out3)
 		# print(out4)
-
-		# errors = 
+		print(" predicted = ",np.argmax(out4)," class = ",c)
+		print()
+		# ideal = 
 
 		return out4;
 
@@ -41,7 +43,7 @@ class NeuralNet:
 
 net = NeuralNet();
 
-flayer = net.trainThis(imgset[b'data'][0]);
+[net.trainThis(imgset[b'data'][i],imgset[b'labels'][i]) for i in range(10)]
 
 
 
