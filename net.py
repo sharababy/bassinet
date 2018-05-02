@@ -31,7 +31,7 @@ class NeuralNet:
 		# print(out3)
 		# print(out4)
 
-		errors = 
+		# errors = 
 
 		return out4;
 
